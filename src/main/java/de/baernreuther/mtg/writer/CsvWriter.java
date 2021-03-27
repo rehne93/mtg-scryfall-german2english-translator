@@ -14,13 +14,14 @@ public class CsvWriter implements Writer {
     @Override
     public void write(List<Card> cardList) {
         try {
-            CSVPrinter printer = new CSVPrinter(new FileWriter("file.csv"), CSVFormat.EXCEL);
+            CSVPrinter printer = new CSVPrinter(new FileWriter(cardList.hashCode() + "cards.csv"), CSVFormat.EXCEL);
             printer.printRecord(Card.getCsvHeader());
             for (Card card : cardList) {
                 printer.printRecord(card.getCsvRecords());
             }
             printer.println();
             printer.flush();
+            printer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

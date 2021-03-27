@@ -42,6 +42,7 @@ public class CsvParser implements Parser {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println("Request successful");
         }
 
         return this.foundCards;

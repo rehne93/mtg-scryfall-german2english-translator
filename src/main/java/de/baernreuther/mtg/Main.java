@@ -14,8 +14,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Parser parser = new CsvParser();
-        List<Card> cards = parser.parse(new FileInputStream("test.csv"));
+        List<Card> cards = parser.parse(new FileInputStream("lands.csv"));
         Writer writer = new CsvWriter();
+        writer.write(cards);
+        cards = parser.parse(new FileInputStream("artefacts.csv"));
         writer.write(cards);
     }
 }
